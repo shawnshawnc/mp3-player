@@ -46,5 +46,8 @@ while not exit_game:
             elif event.key == pygame.K_LEFT:
                 printimage("ambience.jpg")
 
+
+
+                
 pygame.quit()
 quit()
