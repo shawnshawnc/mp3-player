@@ -1,10 +1,9 @@
-import pygame
-import random
-import sys
-pygame.init()
-
 i_dont_want_to_see_my_disgusting_variables = True
 if i_dont_want_to_see_my_disgusting_variables == True:
+    import pygame
+    import random
+    import sys
+    pygame.init()
     width = 1000
     height = 750
     screen = pygame.display.set_mode((width, height))
@@ -27,30 +26,32 @@ if i_dont_want_to_see_my_disgusting_variables == True:
 
 
 while stop == False:
-
+    mouse = pygame.mouse.get_pos()
     for ev in pygame.event.get():
 
         if ev.type == pygame.QUIT:
             stop = True
+            print("User Quit the System")
         pygame.display.flip()
 
-        #skip
+        #skip button
         skipicon = pygame.image.load("skip.png")
         skipicon = pygame.transform.scale(skipicon, (150, 100))
         screen.blit(skipicon , (100, 400))
         if ev.type == pygame.MOUSEBUTTONDOWN:
             if 100 <= mouse[0] <= 250 and 400 <= mouse[1] <= 450:
+                #skipping/changing song
                 tempvar = currentlyplaying
                 playlist.remove(currentlyplaying)
                 currentlyplaying = random.choice(playlist)
                 playlist.append(tempvar)
-
+                print("skip pressed")
 
         #ambient button
         screen.blit(ambienttext , (515, 300))
         if ev.type == pygame.MOUSEBUTTONDOWN:
             if 490 <= mouse[0] <= 700 and 295 <= mouse[1] <= 330 or currentlyplaying == "ambient":
-                #playing music
+                #playing music and setting display
                 ambient = pygame.image.load("ambience.jpg")
                 screen = pygame.display.set_mode((750,500))
                 ambient = pygame.transform.scale(ambient, image_size)
@@ -63,12 +64,14 @@ while stop == False:
                 screen.blit(naturetext , (525, 250))
                 screen.blit(skipicon , (100, 400))
                 pygame.display.flip()
-                currentlyplaying = "ambient"            
+                currentlyplaying = "ambient"
+                print("playing ambient music")            
 
         #nature button
         screen.blit(naturetext , (525, 250))
         if ev.type == pygame.MOUSEBUTTONDOWN:
             if 490 <= mouse[0] <= 700 and 250 <= mouse[1] <= 290 or currentlyplaying == "nature":
+                #playing music and setting display
                 nature = pygame.image.load("nature.webp")
                 screen = pygame.display.set_mode((750,500))
                 nature = pygame.transform.scale(nature, image_size)
@@ -82,11 +85,13 @@ while stop == False:
                 screen.blit(skipicon , (100, 400))
                 pygame.display.flip()
                 currentlyplaying = "nature"
+                print("playing nature music")
 
         #rain button
         screen.blit(raintext , (533, 200))
         if ev.type == pygame.MOUSEBUTTONDOWN:
             if 490 <= mouse[0] <= 700 and 200 <= mouse[1] <= 240 or currentlyplaying == "rain":
+                #playing music and setting display
                 rain = pygame.image.load("rain.jpg")
                 screen = pygame.display.set_mode((750,500))
                 rain = pygame.transform.scale(rain, image_size)
@@ -100,12 +105,9 @@ while stop == False:
                 screen.blit(skipicon , (100, 400))
                 pygame.display.flip()
                 currentlyplaying = "rain"
-
-    mouse = pygame.mouse.get_pos()
-    #first number is x/width second number is y/hieght
-    #counts in the middle
+                print("playing rain music")
+    
     pygame.display.update()
 
 pygame.quit()
 sys.exit()
-
