@@ -3,32 +3,29 @@ import random
 import sys
 pygame.init()
 
-width = 1000
-height = 750
-screen = pygame.display.set_mode((width, height))
-white = 255, 255, 255
-gray = 170, 170, 170
-darkgray = 100, 100, 100
-pygame.display.flip()
-con = True
-playlist = ["ambient", "nature", "rain"]
-image_size = (250, 250)
-font = pygame.font.SysFont("Times New Roman", 30)
-raintext = font.render("Rain Music", True, (0,0,0)) 
-naturetext = font.render("Nature Music", True, (0,0,0)) 
-ambienttext = font.render("Ambient Music", True, (0,0,0)) 
-green = (194, 218, 184)
-currentlyplaying = ""
+i_dont_want_to_see_my_disgusting_variables = True
+if i_dont_want_to_see_my_disgusting_variables == True:
+    width = 1000
+    height = 750
+    screen = pygame.display.set_mode((width, height))
+    white = 255, 255, 255
+    gray = 170, 170, 170
+    darkgray = 100, 100, 100
+    pygame.display.flip()
+    con = True
+    playlist = ["ambient", "nature", "rain"]
+    image_size = (250, 250)
+    font = pygame.font.SysFont("Times New Roman", 30)
+    raintext = font.render("Rain Music", True, (0,0,0)) 
+    naturetext = font.render("Nature Music", True, (0,0,0)) 
+    ambienttext = font.render("Ambient Music", True, (0,0,0)) 
+    green = (194, 218, 184)
+    currentlyplaying = ""
+    stop = False
+    screen = pygame.display.set_mode((750,500))
+    screen.fill(green)
 
 
-
-
-
-
-stop = False
-screen = pygame.display.set_mode((750,500))
-screen.fill(green)
-songid = 0
 while stop == False:
 
     for ev in pygame.event.get():
