@@ -34,8 +34,7 @@ while stop == False:
     for ev in pygame.event.get():
 
         if ev.type == pygame.QUIT:
-            stop == True
-            break
+            stop = True
         pygame.display.flip()
 
         #skip
@@ -109,7 +108,7 @@ while stop == False:
     #first number is x/width second number is y/hieght
     #counts in the middle
     pygame.display.update()
-    sys.exit
-
 
 pygame.quit()
+sys.exit()
+
